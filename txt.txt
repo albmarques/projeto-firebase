@@ -1,3 +1,5 @@
 contas de serviço -> criar chave privada
 pasta documentos, colocar chave na raiz do projeto
 cmd dentro do projeto
+npm install firebase-admin --save
+npm install firebase
