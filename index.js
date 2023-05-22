@@ -7,6 +7,7 @@ initializeApp({
   credential: cert(serviceAccount)
 });
 
+
 const db = getFirestore();
 
 const data ={
@@ -15,10 +16,10 @@ const data ={
   country :'USA'
 }
 
-const res = db.collection("projetoweb-test").doc("LA").set(data)
+const res = db.collection("cities").doc("LA").set(data)
 
-
-const cityRef = db.collection('cities').doc("DC")
+/*
+const cityRef = db.collection('cities').doc("LA")
 const doc =  cityRef.get();
 
 cityRef.get().then(doc => {
@@ -29,3 +30,17 @@ cityRef.get().then(doc => {
 .catch(err => {
   console.log(err);
 });
+*/
+
+const collectionRef = db.collection('cities');
+
+// Obtenha os IDs dos documentos na coleção
+collectionRef.get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      console.log('ID do documento:', doc.id);
+    });
+  })
+  .catch(error => {
+    console.error('Erro ao obter documentos:', error);
+  });
